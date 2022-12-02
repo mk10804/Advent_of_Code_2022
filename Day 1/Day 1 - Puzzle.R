@@ -1,3 +1,4 @@
+setwd("C:/Users/marla/OneDrive/Desktop/Advent of Code 2022/Code-Advent/Day 1")
 library(dplyr)
 
 # Read in data
@@ -8,6 +9,7 @@ dat <- read.table("input.txt"
                   , blank.lines.skip = FALSE)
 names(dat) <- 'calories'
 
+# Figure out which records belong to individual elves
 dat$elf <- NA
 dat$elf[1] <- 1
 
@@ -18,6 +20,7 @@ for(i in 2:nrow(dat)){
 
 dat$calories <- ifelse(is.na(dat$calories), 0, dat$calories)
 
+# Aggregate info
 dat_agg <- dat %>% 
   group_by(elf) %>% 
   summarize(calories = sum(calories)) %>% 
