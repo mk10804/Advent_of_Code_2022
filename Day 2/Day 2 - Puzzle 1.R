@@ -1,4 +1,6 @@
-setwd("C:/Users/marla/OneDrive/Desktop/Advent of Code 2022/Code-Advent/Day 2")
+wd <- getwd()
+setwd(paste0(wd,"/Day 2"))
+
 
 library(dplyr)
 

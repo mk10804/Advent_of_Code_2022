@@ -1,4 +1,6 @@
-setwd("C:/Users/marla/OneDrive/Desktop/Advent of Code 2022/Code-Advent/Day 1")
+wd <- getwd()
+setwd(paste0(wd,"/Day 1"))
+
 library(dplyr)
 
 # Read in data
@@ -8,6 +10,10 @@ dat <- read.table("input.txt"
                   , dec = "."
                   , blank.lines.skip = FALSE)
 names(dat) <- 'calories'
+
+##############################################################################
+# Puzzle 1
+##############################################################################
 
 # Figure out which records belong to individual elves
 dat$elf <- NA
@@ -29,6 +35,11 @@ dat_agg <- dat %>%
   filter(calories == max_cal)
 
 dat_agg$calories # Puzzle 1 answer -- 65912
+
+
+##############################################################################
+# Puzzle 2
+##############################################################################
 
 dat_rank <- dat %>% 
   group_by(elf) %>% 
